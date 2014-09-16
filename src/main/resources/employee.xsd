@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://employee.somecompany.org/elements" xmlns:tns="http://employee.somecompany.org/elements">
+
+<include schemaLocation="ApiRequestResponse.xsd"> </include>
+
+ <complexType name="employee">
+  <sequence>
+    <element name="employeeName" type="string"></element>
+    <element name="employeeEmail" type="string"></element>
+  </sequence>
+ </complexType>
+
+ <element name="employee" type="tns:employee"/>
+ 
+ <complexType name="employeeRequest">
+   <complexContent>
+    <extension base="tns:Request">
+      <sequence>
+        <element name="employee" type="tns:employee"></element>      
+        <element name="employeeAdditionalInfo" type="string"></element>      
+      </sequence>    
+    </extension>
+   </complexContent>
+ </complexType>
+ 
+ <element name="employeeRequest" type="tns:employeeRequest" />
+ 
+</schema>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://employee.somecompany.org/elements"
+	targetNamespace="http://employee.somecompany.org/elements">
+
+    <complexType name="Request">
+    	<sequence>
+			<element name="locale" type="tns:LocaleType" minOccurs="0"
+				maxOccurs="1">
+			</element>
+    	</sequence>
+    </complexType>
+    
+    <complexType name="Response">
+    	<sequence>
+    	    <element name="status" type="tns:Status" minOccurs="1"
+    			maxOccurs="1">
+    		</element>
+    		<element name="errorCode" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    		<element name="errorMessage" type="string" minOccurs="0"
+    			maxOccurs="1">
+    		</element>
+    	</sequence>
+    </complexType>
+
+	<complexType name="LocaleType">
+    	<sequence>
+    		<element name="LanguageCode" type="string" minOccurs="0" maxOccurs="1"></element>
+    		<element name="CountryCode" type="string" minOccurs="0" maxOccurs="1"></element>
+    		<element name="VariantCode" type="string" minOccurs="0" maxOccurs="1"></element>
+    	</sequence>
+    </complexType>
+
+	<simpleType name="Status">
+		<restriction base="string">
+			<enumeration value="Success"></enumeration>
+			<enumeration value="Failure"></enumeration>
+		</restriction>
+	</simpleType>
+	
+</schema>
